@@ -1,25 +1,15 @@
-const products = [
-    {
-        id: 1,
-        name: 'di',
-        price: 30000,
-        year: 2002,
-    },
-    {
-        id: 2,
-        name: 'di2',
-        price: 30200,
-        year: 2003,
-    },
-    {
-        id: 3,
-        name: 'di3',
-        price: 303300,
-        year: 2004,
-    },
-]
+import { useEffect, useState } from "react"
+
 
 export const Products = () => {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:8090/products')
+            .then(res => res.json())
+            .then(data => setProducts(data))
+            .catch(err => console.error(err))
+    })
+
     return (
         <div>
             {products.map(product => {
