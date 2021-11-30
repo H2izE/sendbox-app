@@ -25,6 +25,15 @@ const products = [
         year: 2004,
     },
 ]
+
+const users = [
+    {
+        id: 1,
+        name: 'aa',
+        nickname: 'bb',
+        email: 'c@gmail.com'
+    }
+]
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
     res.send('hello world');
@@ -75,6 +84,16 @@ app.delete('/products/:id', function (req, res) {
         res.send({ id });
     } else {
         res.send({ message: `id ${id} is not existed` });
+    }
+})
+
+app.post('/users', function (req, res) {
+    const { nickname } = req.body;
+    if (users.find(obj => obj.nickname === nickname)) {
+        const idx = users.find(obj => obj.nickname === nickname);
+        res.send(users[idx]);
+    } else {
+        res.status(401).send({ message: 'Password dont match' });
     }
 })
 
