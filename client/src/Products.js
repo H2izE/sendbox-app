@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router";
-import { Product } from "./Product";
-
 
 export const Products = () => {
     const navigate = useNavigate();

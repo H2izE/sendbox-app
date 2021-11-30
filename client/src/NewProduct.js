@@ -22,7 +22,7 @@ function NewProduct() {
         e.preventDefault();
         fetch('http://localhost:8080/products/', {
             method: 'POST',
-            body: JSON.stringify(values), // data can be `string` or {object}!
+            body: JSON.stringify(values),
             headers: {
                 'Content-Type': 'application/json',
             },
