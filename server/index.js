@@ -51,7 +51,7 @@ app.post('/products', function (req, res) {
         id, name, price, year
     };
     products.push(newProduct);
-    res.send({ message: `new product with id:${id} is created` });
+    res.send({ id });
 
 })
 
@@ -61,7 +61,7 @@ app.put('/products/:id', function (req, res) {
     if (products.find(obj => obj.id === id)) {
         const idx = products.findIndex(obj => obj.id === id);
         products[idx] = { id, name, price, year };
-        res.send({ message: `id ${id} is updated` });
+        res.send({ id });
     } else {
         res.send({ message: `id ${id} is not existed` });
     }
@@ -72,7 +72,7 @@ app.delete('/products/:id', function (req, res) {
     if (products.find(obj => obj.id === id)) {
         const idx = products.findIndex(obj => obj.id === id);
         products.splice(idx, 1);
-        res.send({ message: `id ${id} is deleted` });
+        res.send({ id });
     } else {
         res.send({ message: `id ${id} is not existed` });
     }
