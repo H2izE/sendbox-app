@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const NewProduct = () => {
+function NewProduct() {
     const navigate = useNavigate();
     const [values, setValues] = useState({
         name: '',
@@ -13,16 +13,16 @@ const NewProduct = () => {
         const { name, value } = event.target;
 
         setValues({
-            ...value,
-            [name]: values
+            ...values,
+            [name]: value,
         });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:8080/products/${id}`, {
+        fetch('http://localhost:8080/products/', {
             method: 'POST',
-            body: JSON.stringify(values),
+            body: JSON.stringify(values), // data can be `string` or {object}!
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -33,6 +33,7 @@ const NewProduct = () => {
                 navigate(`/products/${data.id}`);
             });
     };
+
     return (
         <form>
             <input
@@ -50,12 +51,12 @@ const NewProduct = () => {
             <input
                 type="number"
                 name="year"
-                value={values.number}
+                value={values.year}
                 onChange={handleChange}
             />
             <button onClick={handleSubmit}>submit</button>
         </form>
-    )
+    );
 }
 
 export default NewProduct;
