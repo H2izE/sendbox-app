@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import useLocalStorage from "./utils/useLocalStorage";
 
 const Login = () => {
     const [user, setUser] = useState();
-    const [userInfo, setUserInfo] = useState(() => {
-        JSON.parse(window.localStorage.getItem('user'))
-    });
+    const [userInfo, setUserInfo] = useLocalStorage('user')
     const [error, setError] = useState(null);
+
 
     const clickHandler = () => {
         fetch(`http://localhost:8080/users/`, {
@@ -14,19 +14,15 @@ const Login = () => {
             headers: { 'Content-Type': 'application/app' }
         })
             .then((res) => {
-                console.log(res);
                 if (!res.ok) {
                     throw new Error(res.statusText);
                 }
                 return res.json();
             })
             .then((data) => {
-                console.log(data);
-                window.localStorage.setItem('user', JSON.stringify(data))
                 setUserInfo(data);
             })
             .catch((error) => {
-                console.dir(error);
                 setError(error.message);
             });
     };
