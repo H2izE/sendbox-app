@@ -11,7 +11,6 @@ import { Products } from "./Products";
 function App() {
   return (
     <>
-      <Login />
       <NavigationBar />
       <Routes>
         <Route path='/' element={<Landing />} />

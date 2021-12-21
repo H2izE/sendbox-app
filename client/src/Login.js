@@ -4,12 +4,11 @@ const Login = ({ setUserInfo, userInfo }) => {
     const [user, setUser] = useState();
     const [error, setError] = useState(null);
 
-
     const clickHandler = () => {
-        fetch(`http://localhost:8080/users/`, {
+        fetch('http://localhost:8080/users/', {
             method: 'POST',
             body: JSON.stringify({ nickname: user }),
-            headers: { 'Content-Type': 'application/app' }
+            headers: { 'Content-Type': 'application/json' }
         })
             .then((res) => {
                 if (!res.ok) {
@@ -40,7 +39,8 @@ const Login = ({ setUserInfo, userInfo }) => {
                 <input value={user} onChange={e => setUser(e.target.value)} />
                 <button onClick={clickHandler}>Login</button>
             </div>
-            {error ? { error } : null}
+            {error ? <div style={{ color: 'red' }}>{error}</div> : null
+            }
         </>
     )
 

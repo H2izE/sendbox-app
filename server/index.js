@@ -95,9 +95,9 @@ app.delete('/products/:id', function (req, res) {
 
 app.post('/users', function (req, res) {
     const { nickname } = req.body;
-    console.log(nickname)
+
     if (users.find(obj => obj.nickname === nickname)) {
-        const idx = users.find(obj => obj.nickname === nickname);
+        const idx = users.findIndex(obj => obj.nickname === nickname);
         res.send(users[idx]);
     } else {
         res.status(401).send({ message: 'Password dont match' });
