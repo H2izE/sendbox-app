@@ -29,10 +29,16 @@ const products = [
 const users = [
     {
         id: 1,
-        name: 'aa',
-        nickname: 'bb',
+        name: 'a',
+        nickname: 'b',
         email: 'c@gmail.com'
-    }
+    },
+    {
+        id: 2,
+        name: 'sujeongjang',
+        nickname: 'jang1214',
+        email: 'sujeongjang1214@gmail.com'
+    },
 ]
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
@@ -89,6 +95,7 @@ app.delete('/products/:id', function (req, res) {
 
 app.post('/users', function (req, res) {
     const { nickname } = req.body;
+    console.log(nickname)
     if (users.find(obj => obj.nickname === nickname)) {
         const idx = users.find(obj => obj.nickname === nickname);
         res.send(users[idx]);
