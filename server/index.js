@@ -105,14 +105,13 @@ app.post('/users', function (req, res) {
 })
 //logins
 
-app.post('/users/new', function (req, res) {
+app.post('/users/new', (req, res) => {
     const newUser = req.body;
-
-    if (users.find(obj => obj.nickname === nickname)) {
-        res.status(401).send({ message: 'username already exist' })
+    if (users.find((obj) => obj.nickname === newUser.nickname)) {
+        res.status(401).send({ message: 'user already exists' });
     } else {
         const id = users.length;
-        users.push({ ...newUser, id })
+        users.push({ ...newUser, id });
         res.send(users[id]);
     }
 })

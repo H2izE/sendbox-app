@@ -11,6 +11,7 @@ const NavigationBar = () => {
             {user ?
                 (<>
                     <div>
+                        <span>로그인된 화면</span>
                         <span>{user.id}</span>
                         <span>:</span>
                         <span>{user.nickname}</span>
@@ -18,10 +19,12 @@ const NavigationBar = () => {
                     <Logout setUserInfo={setUser} />
                 </>
                 )
-                : (<>
-                    <SignUp setUserInfo={setUser} />
-                    <Login setUserInfo={setUser} />
-                </>)}
+                : (
+                    <>
+                        <SignUp setUserInfo={setUser} />
+                        <Login setUserInfo={setUser} />
+                    </>
+                )}
         </div>
     )
 }
