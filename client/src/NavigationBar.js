@@ -1,8 +1,11 @@
 import Login from "./Login"
 import Logout from "./Logout"
 import SignUp from "./SignUp"
+import { useContext } from "react"
+import { UserContext } from './App';
 
-const NavigationBar = ({ user, setUser }) => {
+const NavigationBar = () => {
+    const [user, setUser] = useContext(UserContext);
 
     return (
         <div>

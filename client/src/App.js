@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router";
+import { createContext } from "react";
+import { Navigate, Route, Routes } from "react-router";
 import Dashboard from "./Dashboard";
 import EditProduct from "./EditProduct";
 import Landing from "./Landing";
@@ -8,22 +9,26 @@ import { Product } from "./Product";
 import { Products } from "./Products";
 import useLocalStorage from "./utils/useLocalStorage";
 
+export const UserContext = createContext();
 
-function App() {
+function UserProvider(props) {
   const [user, setUser] = useLocalStorage('user');
-
+  const value = [user, setUser];
+  return <UserContext.Provider value={value} {...props} />
+}
+function App() {
   return (
-    <>
-      <NavigationBar user={user} setUser={setUser} />
+    <UserProvider>
+      <NavigationBar />
       <Routes>
-        <Route path='/' element={<Landing user={user} />} />
-        <Route path='/dashboard' element={<Dashboard user={user} />} />
+        <Route path='/' element={<Landing />} />
+        <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/products/new' element={<NewProduct />} />
         <Route path='/products' element={<Products />} />
         <Route path='/products/:id/edit' element={<EditProduct />} />
         <Route path='/products/:id' element={<Product />} />
       </Routes>
-    </>
+    </UserProvider>
   );
 }
 
