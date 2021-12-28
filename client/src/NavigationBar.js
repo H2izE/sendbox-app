@@ -1,10 +1,8 @@
 import Login from "./Login"
 import Logout from "./Logout"
 import SignUp from "./SignUp"
-import useLocalStorage from "./utils/useLocalStorage"
 
-const NavigationBar = () => {
-    const [user, setUser] = useLocalStorage('user')
+const NavigationBar = ({ user, setUser }) => {
 
     return (
         <div>

@@ -1,6 +1,6 @@
 const { useNavigate } = require("react-router")
 
-const Landing = () => {
+const Landing = ({ user }) => {
     const navigate = useNavigate();
     return (
         <div>
