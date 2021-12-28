@@ -11,6 +11,6 @@
     "dev": "concurrently \"npm run backend\" \"npm run client\""
   },
   "dependencies": {
-    "concurrently": "^6.4.0"
+    "concurrently": "^6.5.1"
   }
 }

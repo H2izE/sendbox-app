@@ -1,4 +1,4 @@
-const Logout = (setUserInfo) => {
+const Logout = ({ setUserInfo }) => {
     return (
         <div>
             <button onClick={() => { setUserInfo(null) }}>Logout</button>

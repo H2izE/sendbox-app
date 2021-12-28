@@ -100,10 +100,23 @@ app.post('/users', function (req, res) {
         const idx = users.findIndex(obj => obj.nickname === nickname);
         res.send(users[idx]);
     } else {
-        res.status(401).send({ message: 'Password dont match' });
+        res.status(401).send({ message: 'no username' });
     }
 })
 //logins
+
+app.post('/users/new', function (req, res) {
+    const newUser = req.body;
+
+    if (users.find(obj => obj.nickname === nickname)) {
+        res.status(401).send({ message: 'username already exist' })
+    } else {
+        const id = users.length;
+        users.push({ ...newUser, id })
+        res.send(users[id]);
+    }
+})
+//signup
 
 app.listen(PORT, () => {
     console.log(`Server is listening at http://localhost:${PORT}`);
