@@ -1,13 +1,16 @@
-const { useNavigate } = require("react-router")
+const { useNavigate, Navigate } = require("react-router")
 
 const Landing = ({ user }) => {
     const navigate = useNavigate();
+    if (user) {
+        return <Navigate to='/dashboard' replace={true} />
+    }
     return (
         <div>
-            <div>hello world</div>
+            <div>로그인전 화면</div>
             <div onClick={() => navigate('/products')}>go to the list</div>
         </div>
     )
 }
-
+//login 정보가 없는 경우 
 export default Landing;
