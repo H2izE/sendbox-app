@@ -5,14 +5,14 @@ export const Products = () => {
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8080/products')
+        fetch('http://localhost:8081/products')
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch(err => console.error(err))
     }, [])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:8080/products/${id}`, {
+        fetch(`http://localhost:8081/products/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

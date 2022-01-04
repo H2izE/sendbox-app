@@ -1,6 +1,4 @@
-import Login from "../auth/Login"
-import Logout from "../auth/Logout"
-import SignUp from "../auth/SignUp"
+import { Login, Logout, SignUp } from "../auth"
 import { useContext } from "react"
 import { UserContext } from '../../App';
 

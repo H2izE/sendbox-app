@@ -20,7 +20,7 @@ function NewProduct() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:8080/products/', {
+        fetch('http://localhost:8081/products/', {
             method: 'POST',
             body: JSON.stringify(values),
             headers: {

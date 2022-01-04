@@ -5,7 +5,7 @@ const SignUp = ({ setUserInfo }) => {
     const [error, setError] = useState(null);
 
     const clickHandler = () => {
-        fetch('http://localhost:8080/users/new', {
+        fetch('http://localhost:8081/users/new', {
             method: 'POST',
             body: JSON.stringify(newUser),
             headers: { 'Content-Type': 'application/json' }
