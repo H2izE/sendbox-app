@@ -7,7 +7,7 @@ export const Product = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch('http://localhost:8080/products/${id}')
+        fetch('http://localhost:8081/products/${id}')
             .then(res => res.json())
             .then(data => setProduct(data))
             .catch(err => console.error(err))
