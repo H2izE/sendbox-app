@@ -4,7 +4,7 @@ import { UserContext } from '../App';
 const { useNavigate, Navigate } = require("react-router")
 
 const Landing = () => {
-    const user = useContext(UserContext)
+    const [user] = useContext(UserContext)
     const navigate = useNavigate();
     if (user) {
         return <Navigate to='/dashboard' replace={true} />

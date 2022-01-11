@@ -1,21 +1,8 @@
+import express from 'express';
+import { db } from '../db';
 
-const users = [
-    {
-        id: 1,
-        name: 'a',
-        nickname: 'b',
-        email: 'c@gmail.com'
-    },
-    {
-        id: 2,
-        name: 'sujeongjang',
-        nickname: 'jang1214',
-        email: 'sujeongjang1214@gmail.com'
-    },
-]
-
-const express = require('express');
 const router = express.Router();
+const { users } = db.data;
 
 router.post('/users', function (req, res) {
     const { nickname } = req.body;
@@ -40,4 +27,4 @@ router.post('/users/new', (req, res) => {
     }
 })
 //signup
-module.exports = router;
+export default router;

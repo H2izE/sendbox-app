@@ -15,13 +15,11 @@ export const Product = () => {
 
     return (
         <div>
-            return (
             <div key={`${product.id}`}>
                 <div>{product.year}</div>
                 <div>{product.name}</div>
                 <div>{product.price}</div>
             </div>
-            )
         </div>
     )
 }

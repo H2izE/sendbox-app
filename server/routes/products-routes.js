@@ -1,26 +1,8 @@
-const products = [
-    {
-        id: 1,
-        name: 'di',
-        price: 30000,
-        year: 2002,
-    },
-    {
-        id: 2,
-        name: 'di2',
-        price: 30200,
-        year: 2003,
-    },
-    {
-        id: 3,
-        name: 'di3',
-        price: 303300,
-        year: 2004,
-    },
-]
+import express from 'express';
+import db from '../db.js'
 
-const express = require('express');
 const router = express.Router();
+const { products } = db.data();
 
 router.get('/products', function (req, res) {
     res.send(products);
@@ -44,6 +26,7 @@ router.post('/products', function (req, res) {
         id, name, price, year
     };
     products.push(newProduct);
+    db.write();
     res.send({ id });
 
 })
@@ -54,6 +37,7 @@ router.put('/products/:id', function (req, res) {
     if (products.find(obj => obj.id === id)) {
         const idx = products.findIndex(obj => obj.id === id);
         products[idx] = { id, name, price, year };
+        db.write();
         res.send({ id });
     } else {
         res.send({ message: `id ${id} is not existed` });
@@ -65,10 +49,11 @@ router.delete('/products/:id', function (req, res) {
     if (products.find(obj => obj.id === id)) {
         const idx = products.findIndex(obj => obj.id === id);
         products.splice(idx, 1);
+        db.write();
         res.send({ id });
     } else {
         res.send({ message: `id ${id} is not existed` });
     }
 })
 
-module.exports = router;
+export default router;

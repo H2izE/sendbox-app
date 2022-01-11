@@ -92,6 +92,13 @@
   "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
 
+"lowdb@^3.0.0":
+  "integrity" "sha512-9KZRulmIcU8fZuWiaM0d5e2/nPnrFyXkeXVpqT+MJS+vgbgOf1EbtvgQmba8HwUFgDl1oeZR6XqEJnkJmQdKmg=="
+  "resolved" "https://registry.npmjs.org/lowdb/-/lowdb-3.0.0.tgz"
+  "version" "3.0.0"
+  dependencies:
+    "steno" "^2.1.0"
+
 "require-directory@^2.1.1":
   "integrity" "sha1-jGStX9MNqxyXbiNE/+f3kqam30I="
   "resolved" "https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz"
@@ -108,6 +115,11 @@
   "integrity" "sha1-YvXpRmmBwbeW3Fkpk34RycaSG9A="
   "resolved" "https://registry.npmjs.org/spawn-command/-/spawn-command-0.0.2-1.tgz"
   "version" "0.0.2-1"
+
+"steno@^2.1.0":
+  "integrity" "sha512-mauOsiaqTNGFkWqIfwcm3y/fq+qKKaIWf1vf3ocOuTdco9XoHCO2AGF1gFYXuZFSWuP38Q8LBHBGJv2KnJSXyA=="
+  "resolved" "https://registry.npmjs.org/steno/-/steno-2.1.0.tgz"
+  "version" "2.1.0"
 
 "string-width@^4.1.0", "string-width@^4.2.0":
   "integrity" "sha512-zUz5JD+tgqtuDjMhwIg5uFVV3dtqZ9yQJlZVfq4I01/K5Paj5UHj7VyrQOJvzawSVlKpObApbfD0Ed6yJc+1eg=="
