@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 function NewProduct() {
     const navigate = useNavigate();
     const [values, setValues] = useState({
@@ -20,7 +22,7 @@ function NewProduct() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:8081/products/', {
+        fetch(`${SERVER_URL}/products/`, {
             method: 'POST',
             body: JSON.stringify(values),
             headers: {
